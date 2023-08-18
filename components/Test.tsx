@@ -13,7 +13,7 @@ const Test = () => {
     const [password, setPassword] = useState('');
 
     const postData = async () => {
-        axios.get('http://localhost:8080/sanctum/csrf-cookie').then((res: any) => {
+        axios.get('http://localhost:8080/sanctum/csrf-cookie', { withCredentials: true }).then((res: any) => {
             console.log(res);
             http.post('/api/login', {email, password}).then((res: any) => {
                 console.log(res);
